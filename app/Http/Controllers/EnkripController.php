@@ -31,12 +31,12 @@ class EnkripController extends Controller
             'pass' => 'required',
         ]);
 
-        $saveEnkrip = "eyJpdiI6IkZkUllJNFBqVmx4S0hnUkxZRTRhYUE9PSIsInZhbHVlIjoiVkVtUU5Sc1lxWkhHelNLM29rL3JRZz09IiwibWFjIjoiZGMxODdjNzk2YmZhYTczNmI5N2ZhZjIzZWQ3MzYyZGU1OGUwNzgyMzM5M2IzZmRiNmQyZGUxMmE1NmMyM2YzMyIsInRhZyI6IiJ9";
+        $saveEnkrip = "eyJpdiI6InhFRWcyZ29FbGNjckVGT1l3TzFKMHc9PSIsInZhbHVlIjoiWWxzVC9Sb1dBcGp3OCtteEFtdllmdz09IiwibWFjIjoiODhlODU3MjEzMDYzNGYyM2NiZjZiMjE5OGZmN2ZhY2UyM2VhOTE5N2Y5YzE1YzQ3ZDc0OTRhN2Q0MzM4NDU4MCIsInRhZyI6IiJ9";
 
         try {
             $decrypted = Crypt::decrypt($saveEnkrip);
         } catch (DecryptException $e) {
-            //
+            return $e->getMessage();
         }
         
         return $decrypted;
